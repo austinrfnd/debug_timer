@@ -109,7 +109,6 @@ Finished in 0.00926 seconds (files took 0.11604 seconds to load)
 - Add GC output before and after blocks
 - Add object allocation output before and after blocks
 
-It would be cool to
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/debug_timer/fork )

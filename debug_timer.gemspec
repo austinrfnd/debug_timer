@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jurias@spokeo.com", "austinrf@gmail.com"]
   spec.summary       = "When RubyProf has failed you, time your individual code components."
   spec.description   = "Nest code blocks and time them easily to grab a greater insight on what is happening to your code."
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/austinrfnd/debug_timer"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
