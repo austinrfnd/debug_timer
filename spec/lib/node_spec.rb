@@ -1,6 +1,9 @@
 describe DebugTimer::Node do
   let :node do
-    DebugTimer::Node.new('asdf')
+    n = DebugTimer::Node.new('asdf')
+    'asdf'
+    n.stop
+    n
   end
 
   describe 'initialize' do

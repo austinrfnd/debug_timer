@@ -1,17 +1,16 @@
 require 'logger'
 require "debug_timer/version"
+require "debug_timer/config"
 require "debug_timer/logger"
 require "debug_timer/node"
-require "debug_timer/config"
+require "debug_timer/node_printer"
 
 module DebugTimer
   def self.start(name = '---', &block)
     parent = @current_node
 
     @current_node = Node.new(name)
-
     result = yield
-
     @current_node.stop()
 
     if parent
