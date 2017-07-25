@@ -1,0 +1,2 @@
+ === 0.1.0
+  - Adding the ability to output gc_stats

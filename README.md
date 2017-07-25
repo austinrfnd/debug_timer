@@ -40,20 +40,23 @@ Or install it yourself as:
 
     $ gem install debug_timer
 
-### Logger
+### Configuration
 
 You can add your logger instance if you want:
 
 ```ruby
 # Straight assignment
 DebugTimer.logger = Logger.new('asdf')
+DebugTimer.object_allocations = true
 
 # or config assignment
 DebugTimer.config do |config|
   config.logger = Logger.new('asdf')
+  config.object_allocations = true
 end
 
 ```
+
 ## Usage
 
 To use DebugTimer simply wrap the code you want to time in a block.
@@ -96,6 +99,28 @@ And the output will look like:
  1.0554    └── Some other code
 ```
 
+### Object Allocations
+```ruby
+
+# Enable it
+DebugTimer.object_allocations = true
+
+# Time
+DebugTimer.start('search function') do
+  Search.todo('in here')
+end
+```
+
+And the output will look like:
+```
+INFO -- : 0.0036 | T_OBJECT: 1 | FREE: -91  └── search function
+```
+
+The second pipe is the is ObjectSpace's T_OBJECT change
+
+The third pipe is the ObjectSpace's :FREE change
+
+
 ## Running Specs
 
 ```
@@ -105,9 +130,6 @@ Finished in 0.00926 seconds (files took 0.11604 seconds to load)
 5 examples, 0 failures
 ```
 
-## TODOS:
-- Add GC output before and after blocks
-- Add object allocation output before and after blocks
 
 ## Contributing
 
