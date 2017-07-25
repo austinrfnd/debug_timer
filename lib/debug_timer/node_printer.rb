@@ -14,13 +14,18 @@ module DebugTimer
     def left_stats
       stats = [seconds_elapsed]
       if DebugTimer.object_allocations?
-        stats << total_objects_allocated
+        stats << "T_OBJECT: #{total_objects_allocated}"
+        stats << "FREE: #{total_free_count}"
       end
       stats.join(" | ")
     end
 
     def total_objects_allocated
-      @node.start_gc_stats[:TOTAL] - @node.end_gc_stats[:TOTAL]
+      @node.end_gc_stats[:T_OBJECT] - @node.start_gc_stats[:T_OBJECT]
+    end
+
+    def total_free_count
+      @node.end_gc_stats[:FREE] - @node.start_gc_stats[:FREE]
     end
 
     def seconds_elapsed

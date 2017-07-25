@@ -25,11 +25,13 @@ module DebugTimer
 
     def grab_object_allocations(start)
       if start
-        GC.disable
-        @start_gc_stats = ObjectSpace.count_objects.dup
+        # GC.disable
+        # puts ObjectSpace.count_objects.inspect
+        @start_gc_stats = ObjectSpace.count_objects
       else
-        @end_gc_stats = ObjectSpace.count_objects.dup
-        GC.enable
+        # puts ObjectSpace.count_objects.inspect
+        @end_gc_stats = ObjectSpace.count_objects
+        # GC.enable
       end
     end
   end

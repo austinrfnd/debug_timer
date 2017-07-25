@@ -113,10 +113,12 @@ end
 
 And the output will look like:
 ```
-1.8040 | 10 └── search function
+INFO -- : 0.0036 | T_OBJECT: 1 | FREE: -91  └── search function
 ```
 
-The second number is the total number of objects allocated in that block.
+The second pipe is the is ObjectSpace's T_OBJECT change
+
+The third pipe is the ObjectSpace's :FREE change
 
 
 ## Running Specs
@@ -128,8 +130,6 @@ Finished in 0.00926 seconds (files took 0.11604 seconds to load)
 5 examples, 0 failures
 ```
 
-## TODOS:
-- Add GC output before and after blocks
 
 ## Contributing
 
